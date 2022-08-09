@@ -1,27 +1,13 @@
-#!/usr/bin/env python
-import os
-
-import dicom
-import dicomtools
-import pydicom
-from dicomtools.series import DicomSeries
+from src.landmarks_reduction import apply_PCA
+from src.voxel_transform import extract_voxel_data
 
 
 def main():
-    dcm_path = f"CT/CT000015.dcm"
+    _, affine_matrix = extract_voxel_data()
 
-    print(os.path.abspath(dcm_path))
+    apply_PCA(components_number=2)
 
-    file = pydicom.read_file(dcm_path)
-
-    print(file)
-
-    series = DicomSeries([file])
-    print(series)
-
-    volume = dicomtools.volume.DicomVolume(series)
-
-    dicomtools.visualization.plot_slice(volume, 2, 0)
+    print(f"affine_matrix: {affine_matrix}")
 
 
 if __name__ == '__main__':
