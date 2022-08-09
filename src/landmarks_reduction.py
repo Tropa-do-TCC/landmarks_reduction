@@ -1,6 +1,6 @@
 import numpy as np
 import pandas as pd
-from matplotlib import pyplot as plt
+import matplotlib.pyplot as plt
 from sklearn.decomposition import PCA
 from sklearn.preprocessing import StandardScaler
 
@@ -9,8 +9,8 @@ def scale_data(landmarks_data: pd.DataFrame):
     """
     Normalize data to apply PCA
     """
-    scale_obj = StandardScaler()
-    scaled_data = scale_obj.fit_transform(landmarks_data.astype(float))
+    scaler = StandardScaler()
+    scaled_data = scaler.fit_transform(landmarks_data.astype(float))
 
     return scaled_data
 
