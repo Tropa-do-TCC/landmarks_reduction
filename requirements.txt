@@ -3,4 +3,5 @@ pydicom
 sklearn
 numpy
 pandas
+matplotlib
 dicom_numpy
