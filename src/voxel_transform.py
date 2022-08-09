@@ -8,9 +8,8 @@ def get_slices(dcm_dir_name: str = "CT"):
     """
     Get all CT slices from dicom files directory 
     """
-    dcm_dir_path = dcm_dir_name
     dcm_files = os.listdir(dcm_dir_name)
-    dcm_files_paths = [os.path.join(dcm_dir_path, file) for file in dcm_files]
+    dcm_files_paths = [os.path.join(dcm_dir_name, file) for file in dcm_files]
 
     slices = [dcmread(file) for file in dcm_files_paths]
 
