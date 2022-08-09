@@ -1,4 +1,6 @@
 dicom
 pydicom
 sklearn
+numpy
+pandas
 dicom_numpy
